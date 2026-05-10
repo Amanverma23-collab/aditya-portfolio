@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya Jangid</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/feather-icons"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#e6e7ee;color:#333}
+
+.container{display:flex}
+
+/* Sidebar */
+.sidebar{
+  width:100px;height:100vh;position:fixed;
+  background:#e6e7ee;
+  box-shadow:12px 12px 25px #c5c6cc,-12px -12px 25px #fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+  padding:20px 0;
+}
+.logo{
+  width:60px;height:60px;border-radius:18px;
+  display:flex;align-items:center;justify-content:center;font-weight:600;
+  background:linear-gradient(135deg,#6c63ff,#8f94fb);color:#fff;
+}
+.nav a{display:block;margin:18px 0;color:#666}
+.social a{display:block;margin:10px 0}
+
+.main{margin-left:130px;}
+
+
+section{
+  padding:40px 60px;
+}
+
+/* Hero */
+.hero{display:flex;justify-content:space-between;align-items:center}
+.hero h1{font-size:52px}
+.hero span{color:#6c63ff}
+.hero p{margin-top:10px;color:#555}
+
+/* 3D Buttons */
+.btn{
+  margin-top:20px;padding:14px 28px;border:none;border-radius:14px;
+  background:linear-gradient(145deg,#7c73ff,#5a52e0);
+  color:#fff;
+  box-shadow:6px 6px 15px #c5c6cc,-6px -6px 15px #fff;
+  cursor:pointer;margin-right:12px;
+  transition:0.2s;
+}
+.btn:active{
+  box-shadow:inset 5px 5px 10px #4a44c4,inset -5px -5px 10px #8f94fb;
+}
+
+.profile-box{position:relative}
+.profile{
+  width:340px;border-radius:25px;
+  box-shadow:15px 15px 30px #c5c6cc,-15px -15px 30px #fff;
+}
+.badge{
+  position:absolute;bottom:10px;right:-20px;
+  background:#e6e7ee;padding:12px 22px;border-radius:16px;
+  box-shadow:6px 6px 15px #c5c6cc,-6px -6px 15px #fff;
+}
+
+/* Cards */
+.card{
+  background:#e6e7ee;padding:30px;border-radius:25px;
+  box-shadow:12px 12px 25px #c5c6cc,-12px -12px 25px #fff;
+}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+
+/* About Box Inner */
+.info-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:20px
+}
+.info-item{
+  padding:15px;border-radius:15px;
+  background:#e6e7ee;
+  box-shadow:6px 6px 12px #c5c6cc,-6px -6px 12px #fff;
+  font-size:14px;
+}
+
+/* Skills */
+.skills div{margin:12px 0}
+.bar{height:8px;background:#d1d3db;border-radius:10px;margin-top:6px}
+.bar span{display:block;height:100%;background:#6c63ff;border-radius:10px}
+
+/* Footer */
+.footer{
+  margin-top:40px;padding:40px;border-radius:25px;
+  background:linear-gradient(135deg,#6c63ff,#8f94fb);
+  color:#fff;display:flex;justify-content:space-between;align-items:center
+}
+.footer button{
+  padding:12px 22px;border:none;border-radius:12px;margin-left:10px;cursor:pointer
+}
+
+.reveal{opacity:0;transform:translateY(40px);transition:0.6s}
+.reveal.active{opacity:1;transform:translateY(0)}
+/* ===== ABOUT SECTION NEW ===== */
+.about-container{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap:30px;
+  align-items:center;
+}
+
+.about-left h2{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.about-icon{
+  background:linear-gradient(145deg,#7c73ff,#5a52e0);
+  padding:10px;
+  border-radius:12px;
+  color:#fff;
+  display:flex;
+}
+
+.about-right{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.info-box{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:15px;
+  border-radius:15px;
+  background:#e6e7ee;
+  box-shadow:6px 6px 12px #c5c6cc,-6px -6px 12px #fff;
+  transition:0.3s;
+}
+
+.info-box:hover{
+  transform:translateY(-5px);
+}
+
+.info-box .icon{
+  width:45px;
+  height:45px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background:linear-gradient(145deg,#7c73ff,#5a52e0);
+  color:#fff;
+}
+
+.info-box p{
+  font-size:12px;
+  color:#666;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .about-container{
+    grid-template-columns:1fr;
+  }
+
+  .about-right{
+    grid-template-columns:1fr;
+  }
+}
+/* HERO NEW DESIGN */
+.hero{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:40px;
+  margin-top:-20px;
+}
+
+.hero-left h1{
+  font-size:52px;
+  line-height:1.2;
+}
+
+.hero-left span{
+  color:#6c63ff;
+  text-shadow:0 5px 15px rgba(108,99,255,0.3);
+}
+
+.hero-left h3{
+  margin:10px 0;
+  font-weight:500;
+}
+
+.hero-left p{
+  color:#666;
+  max-width:500px;
+}
+
+.tag{
+  display:inline-block;
+  padding:8px 16px;
+  border-radius:20px;
+  background:#e6e7ee;
+  box-shadow:6px 6px 12px #c5c6cc,-6px -6px 12px #fff;
+  margin-bottom:15px;
+  font-size:14px;
+}
+
+/* BUTTONS */
+
+
+.hero-buttons{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-top:25px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:14px 24px;
+  border-radius:12px;
+  font-size:15px;
+text-decoration:none;
+}
+
+
+.primary{
+  background:linear-gradient(145deg,#7c73ff,#5a52e0);
+  color:#fff;
+  box-shadow:6px 6px 15px #c5c6cc,-6px -6px 15px #fff;
+}
+
+.secondary{
+  background:#e6e7ee;
+  color:#6c63ff;
+  box-shadow:6px 6px 15px #c5c6cc,-6px -6px 15px #fff;
+}
+
+/* HOVER FLOAT */
+.btn:hover{
+  transform:translateY(-6px) scale(1.03);
+}
+
+/* IMAGE BOX */
+.img-box{
+  position:relative;
+  padding:15px;
+  border-radius:30px;
+  background:#e6e7ee;
+  box-shadow:12px 12px 25px #c5c6cc,-12px -12px 25px #fff;
+}
+
+.img-box img{
+  width:320px;
+  border-radius:25px;
+  display:block;
+}
+
+/* EXPERIENCE BADGE */
+.exp-badge{
+  position:absolute;
+  bottom:-20px;
+  right:-20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 18px;
+  border-radius:15px;
+  background:#e6e7ee;
+  box-shadow:6px 6px 15px #c5c6cc,-6px -6px 15px #fff;
+}
+
+.exp-badge i{
+  background:linear-gradient(145deg,#7c73ff,#5a52e0);
+  color:#fff;
+  padding:8px;
+  border-radius:10px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .img-box img{
+    width:250px;
+  }
+}
+
+/* TITLE ICON */
+.title-icon{
+  width:40px;
+  height:40px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background:linear-gradient(145deg,#7c73ff,#5a52e0);
+  color:#fff;
+  margin-right:10px;
+}
+
+
+/* EXP BOX */
+.exp-box ul{
+  margin-top:15px;
+}
+
+.exp-box li{
+  margin:8px 0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+}
+
+.exp-box i{
+  color:#6c63ff;
+}
+
+/* YEAR BADGE */
+.year{
+  background:#e6e7ee;
+  padding:6px 12px;
+  border-radius:12px;
+  font-size:12px;
+  margin-left:10px;
+  box-shadow:4px 4px 10px #c5c6cc,-4px -4px 10px #fff;
+}
+
+/* SKILLS */
+.skill{
+  margin:12px 0;
+}
+
+.skill p{
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+}
+
+.bar{
+  height:8px;
+  background:#d1d3db;
+  border-radius:10px;
+  margin-top:5px;
+}
+
+.bar span{
+  display:block;
+  height:100%;
+  background:linear-gradient(145deg,#7c73ff,#5a52e0);
+  border-radius:10px;
+}
+
+/* HOVER EFFECT (IMPORTANT) */
+.exp-box:hover,
+.skill-box:hover{
+  transform:translateY(-10px);
+  transition:0.3s;
+}
+
+/* EDUCATION */
+.edu-container{
+  display:grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap:25px;
+  margin-top:20px;
+}
+
+.edu-box{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  padding:20px;
+  border-radius:20px;
+  background:#e6e7ee;
+  box-shadow:8px 8px 20px #c5c6cc,-8px -8px 20px #fff;
+  transition:0.3s;
+}
+
+.edu-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.edu-icon{
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background:linear-gradient(145deg,#7c73ff,#5a52e0);
+  color:#fff;
+}
+
+
+.college{
+  color:#6c63ff;
+  font-size:14px;
+}
+
+.edu-badge{
+  background:#e6e7ee;
+  padding:8px 16px;
+  border-radius:12px;
+  font-size:13px;
+  box-shadow:4px 4px 10px #c5c6cc,-4px -4px 10px #fff;
+}
+
+/* QUOTE BOX */
+.edu-quote{
+  padding:20px;
+  border-radius:20px;
+  background:#e6e7ee;
+  box-shadow:8px 8px 20px #c5c6cc,-8px -8px 20px #fff;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  font-size:14px;
+transition: all 0.35s ease;
+}
+
+.edu-quote i{
+  color:#6c63ff;
+}
+
+/* HOVER EFFECT */
+.edu-box:hover,
+.edu-quote:hover{
+  transform:translateY(-10px);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .edu-container{
+    grid-template-columns:1fr;
+  }
+}
+
+/* OUTER EDUCATION CARD HOVER */
+.edu-section:hover{
+  transform:translateY(-10px);
+  transition:0.3s;
+}
+
+/* INNER BOXES HOVER */
+.edu-box:hover,
+.edu-quote:hover{
+  transform:translateY(-8px);
+  box-shadow:12px 12px 25px #c5c6cc,-12px -12px 25px #fff;
+}
+
+.edu-box:hover{
+  box-shadow:12px 12px 25px #c5c6cc,-12px -12px 25px #fff;
+}
+
+/* FOOTER NEW DESIGN */
+.new-footer{
+  margin-top:40px;
+  padding:40px;
+  border-radius:25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:linear-gradient(135deg,#7c73ff,#5a52e0);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+/* HOVER PURE BOX */
+.new-footer:hover{
+  transform:translateY(-10px);
+}
+
+/* TEXT */
+.footer-left h2{
+  font-size:28px;
+}
+
+.footer-left p{
+  margin-top:5px;
+  opacity:0.9;
+}
+
+/* BUTTONS */
+.footer-right{
+  display:flex;
+  gap:15px;
+}
+
+.f-btn{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 20px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:500;
+  background:#fff;
+  color:#333;
+  box-shadow:6px 6px 15px rgba(0,0,0,0.2);
+  transition:0.3s;
+}
+
+/* BUTTON HOVER */
+.f-btn:hover{
+  transform:translateY(-5px) scale(1.05);
+}
+
+/* WHATSAPP COLOR TOUCH */
+.whatsapp{
+  color:#25D366;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .new-footer{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+  }
+
+.footer-left h2{
+font-size:34px;
+white-space:nowrap;
+letter-spacing:-1px;
+}
+
+}
+
+/* NEW SIDEBAR */
+.new-sidebar{
+  width:110px;
+  height:100vh;
+  position:fixed;
+  background:#e6e7ee;
+  box-shadow:12px 12px 25px #c5c6cc,-12px -12px 25px #fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 10px;
+  transition:0.3s;
+}
+
+/* HOVER FULL SIDEBAR */
+.new-sidebar:hover{
+  transform:translateX(5px);
+}
+
+/* LOGO */
+.logo{
+  width:60px;
+  height:60px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+  font-size:20px;
+  background:linear-gradient(145deg,#7c73ff,#5a52e0);
+  color:#fff;
+  box-shadow:6px 6px 12px #c5c6cc,-6px -6px 12px #fff;
+}
+
+/* MENU */
+.nav-menu{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  align-items:center;
+}
+
+/* NAV ITEM */
+.nav-item{
+  text-decoration:none;
+  color:#666;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-size:12px;
+  transition:0.3s;
+}
+
+.nav-item i{
+  padding:10px;
+  border-radius:12px;
+}
+
+/* ACTIVE + HOVER */
+.nav-item:hover i,
+.nav-item.active i{
+  background:linear-gradient(145deg,#7c73ff,#5a52e0);
+  color:#fff;
+  box-shadow:4px 4px 10px #c5c6cc,-4px -4px 10px #fff;
+}
+
+.nav-item:hover{
+  color:#6c63ff;
+  transform:translateY(-3px);
+}
+
+/* SOCIAL BOX */
+.social-box{
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+  padding:10px;
+  border-radius:15px;
+  background:#e6e7ee;
+  box-shadow:6px 6px 12px #c5c6cc,-6px -6px 12px #fff;
+}
+
+.social-box a{
+  color:#666;
+  transition:0.3s;
+}
+
+.social-box a:hover{
+  color:#6c63ff;
+  transform:scale(1.2);
+}
+.container{
+  display:flex;
+}
+
+.main{
+  margin-left:140px;
+  width:calc(100% - 140px);
+}
+
+
+section{
+  padding:40px 60px;
+}
+
+.hero{
+  padding-top:35px;
+}
+
+
+.hero-left h1{
+  margin-top:10px;
+}
+
+.hero-left{
+  margin-top:-5px;
+}
+
+.hero-right{
+  margin-top:30px;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+
+
+.edu-icon i{
+  width:18px;
+  height:18px;
+}
+
+
+.about-section{
+  transition:0.3s;
+}
+
+.about-section:hover{
+  transform:translateY(-10px);
+  box-shadow:15px 15px 30px #c5c6cc,-15px -15px 30px #fff;
+}
+
+
+@media (max-width:768px){
+
+.sidebar,
+.new-sidebar{
+display:none;
+}
+
+.main{
+margin-left:0;
+width:100%;
+}
+
+section{
+padding:25px 18px;
+}
+
+/* HERO */
+.hero{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:flex-start;
+gap:20px;
+padding-top:40px;
+}
+
+
+.hero-left{
+order:1;
+margin-top:0 !important;
+text-align:center;
+}
+
+
+.hero-left h1{
+font-size:42px;
+line-height:1.15;
+}
+
+.hero-left p{
+max-width:100%;
+}
+
+.hero-right{
+order:2;
+margin-top:0;
+}
+
+
+.img-box img{
+width:100%;
+max-width:280px;
+}
+
+.exp-badge{
+right:0;
+bottom:-15px;
+transform:scale(.9);
+}
+
+.hero-buttons{
+order:3;
+width:100%;
+}
+
+.hero-buttons .btn{
+width:100%;
+justify-content:center;
+}
+
+/* ABOUT */
+.about-container{
+grid-template-columns:1fr;
+}
+
+.about-right{
+grid-template-columns:1fr;
+}
+
+/* Experience + Skills */
+.grid{
+grid-template-columns:1fr;
+}
+
+/* Education */
+.edu-container{
+grid-template-columns:1fr;
+}
+
+/* Footer */
+.new-footer{
+flex-direction:column;
+text-align:center;
+}
+
+.footer-right{
+flex-direction:column;
+width:100%;
+}
+
+.f-btn{
+width:100%;
+justify-content:center;
+}
+
+.edu-left h3{
+max-width:260px;
+line-height:1.35;
+font-size:18px;
+}
+
+}
+
+
+</style>
+</head>
+
+<body>
+
+
+
+<div class="container">
+
+<div class="sidebar new-sidebar">
+
+  <!-- TOP LOGO -->
+  <div class="logo">AJ</div>
+
+  <!-- MENU -->
+  <div class="nav-menu">
+
+    <a href="#" class="nav-item active">
+      <i data-feather="home"></i>
+      <span>Home</span>
+    </a>
+
+    <a href="#about" class="nav-item">
+      <i data-feather="user"></i>
+      <span>About</span>
+    </a>
+
+    <a href="#exp" class="nav-item">
+      <i data-feather="briefcase"></i>
+      <span>Experience</span>
+    </a>
+
+    <a href="#edu" class="nav-item">
+      <i data-feather="book-open"></i>
+      <span>Education</span>
+    </a>
+
+    <a href="#skills" class="nav-item">
+      <i data-feather="star"></i>
+      <span>Skills</span>
+    </a>
+
+    <a href="#contact" class="nav-item">
+      <i data-feather="mail"></i>
+      <span>Contact</span>
+    </a>
+
+  </div>
+
+  <!-- SOCIAL BOX -->
+  <div class="social-box">
+
+    <a href="https://www.linkedin.com/in/adityajangid2175" target="_blank">
+      <i data-feather="linkedin"></i>
+    </a>
+
+    <a href="https://www.instagram.com/the_adityarjangid" target="_blank">
+      <i data-feather="instagram"></i>
+    </a>
+
+    <a href="mailto:adityajangid2175@gmail.com">
+      <i data-feather="mail"></i>
+    </a>
+
+  </div>
+
+</div>
+
+
+     </div>
+</div>
+
+<div class="main">
+
+<section class="hero">
+
+  <!-- LEFT -->
+  <div class="hero-left reveal">
+
+    <div class="tag">● Payroll & Compliance Professional</div>
+
+    <h1>Hi, I’m <br><span>Aditya Jangid</span></h1>
+
+    <h3>Payroll Executive | Compliance Specialist</h3>
+
+    <p>
+      Dedicated professional with 2 years of experience in payroll processing, 
+      statutory compliance, and taxation. Ensuring accuracy, efficiency and compliance excellence.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="resume.pdf" download class="btn primary">
+        <i data-feather="download"></i> Download Resume
+      </a>
+
+      <a href="#contact" class="btn secondary">
+        Contact Me <i data-feather="send"></i>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- RIGHT -->
+  <div class="hero-right">
+
+    <div class="img-box">
+      <img src="profile.jpg" alt="profile">
+
+      <div class="exp-badge">
+        <i data-feather="briefcase"></i>
+        <div>
+          <strong>2+ Years</strong>
+          <p>Experience</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<section id="about" class="card reveal about-section">
+  <div class="about-container">
+
+    <!-- LEFT SIDE -->
+    <div class="about-left">
+      <h2><span class="about-icon"><i data-feather="user"></i></span> About Me</h2>
+      <p>
+        I am a detail-oriented Payroll and Compliance professional with hands-on experience 
+        in managing end-to-end payroll operations and ensuring statutory compliance. 
+        I help organizations streamline their HR & payroll processes with accuracy and efficiency.
+      </p>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="about-right">
+
+      <div class="info-box">
+        <div class="icon"><i data-feather="phone"></i></div>
+        <div>
+          <strong>7014893708</strong>
+          <p>Mobile</p>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <div class="icon"><i data-feather="mail"></i></div>
+        <div>
+          <strong>adityajangid2175@gmail.com</strong>
+          <p>Email</p>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <div class="icon"><i data-feather="map-pin"></i></div>
+        <div>
+          <strong>New Delhi</strong>
+          <p>Location</p>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <div class="icon"><i data-feather="book"></i></div>
+        <div>
+          <strong>Pursuing BCA</strong>
+          <p>Education</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<section id="exp" class="grid new-exp">
+
+  <!-- WORK EXPERIENCE -->
+  <div class="card reveal exp-box">
+
+    <h2><span class="title-icon"><i data-feather="briefcase"></i></span> Work Experience</h2>
+
+    <div class="exp-item">
+      <h3>Career Creed – HR Executive <span class="year">2 Years</span></h3>
+
+      <ul>
+        <li><i data-feather="check-circle"></i> End-to-end Payroll Processing for multiple employees and clients</li>
+        <li><i data-feather="check-circle"></i> Handling PF & ESIC registration, challans, returns, and compliance</li>
+        <li><i data-feather="check-circle"></i> Managing statutory compliances including PF, ESIC, LWF, and labor laws</li>
+        <li><i data-feather="check-circle"></i> Handling TDS (salary-related) calculations and coordination</li>
+        <li><i data-feather="check-circle"></i> Preparation and verification of salary sheets and payslips</li>
+        <li><i data-feather="check-circle"></i> Employee onboarding, data management, and payroll structuring</li>
+        <li><i data-feather="check-circle"></i> Client coordination for payroll inputs and compliance timelines</li>
+        <li><i data-feather="check-circle"></i> Ensuring timely and accurate monthly payroll & compliance execution</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- KEY SKILLS -->
+  <div id="skills" class="card reveal skill-box">
+
+    <h2><span class="title-icon"><i data-feather="star"></i></span> Key Skills</h2>
+
+    <div class="skill">
+      <p>Payroll Processing <span>100%</span></p>
+      <div class="bar"><span style="width:100%"></span></div>
+    </div>
+
+    <div class="skill">
+      <p>Payroll & Statutory Compliance <span>91%</span></p>
+      <div class="bar"><span style="width:91%"></span></div>
+    </div>
+
+    <div class="skill">
+      <p>PF & ESIC Handling <span>95%</span></p>
+      <div class="bar"><span style="width:95%"></span></div>
+    </div>
+
+    <div class="skill">
+      <p>TDS (Salary Basics) <span>91%</span></p>
+      <div class="bar"><span style="width:91%"></span></div>
+    </div>
+
+    <div class="skill">
+      <p>HR Operations <span>94%</span></p>
+      <div class="bar"><span style="width:94%"></span></div>
+    </div>
+
+    <div class="skill">
+      <p>Excel & Google Sheets <span>95%</span></p>
+      <div class="bar"><span style="width:95%"></span></div>
+    </div>
+
+    <div class="skill">
+      <p>Employee Records Management <span>97%</span></p>
+      <div class="bar"><span style="width:97%"></span></div>
+    </div>
+
+    <div class="skill">
+      <p>Client Coordination <span>90%</span></p>
+      <div class="bar"><span style="width:90%"></span></div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="edu" class="card reveal edu-section">
+
+  <h2><span class="title-icon"><i data-feather="book-open"></i></span> Education</h2>
+
+  <div class="edu-container">
+
+    <!-- LEFT BOX -->
+    <div class="edu-box">
+
+      <div class="edu-left">
+        <div class="edu-icon">
+          <i data-feather="award"></i>
+
+        </div>
+
+        <div>
+          <h3>Bachelor of Computer Applications (BCA)</h3>
+          <p class="college">Mangalyatan University</p>
+        </div>
+      </div>
+
+      <div class="edu-badge">Pursuing</div>
+
+    </div>
+
+    <!-- RIGHT QUOTE -->
+    <div class="edu-quote">
+      <i data-feather="message-circle"></i>
+      <p>Committed to continuous learning and professional growth.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contact" class="footer new-footer reveal">
+
+  <div class="footer-left">
+    <h2>Contact me</h2>
+     
+ </div>
+
+  <div class="footer-right">
+
+   <a href="mailto:adityajangid2175@gmail.com?subject=Website Inquiry&body=Hello Aditya," class="f-btn email">
+      <i data-feather="mail"></i> Send Email
+    </a>
+<a href="https://wa.me/917014893708?text=Hello%20Aditya%2C%20I%20want%20to%20connect" target="_blank" class="f-btn whatsapp">
+
+      <i data-feather="phone"></i> Chat on WhatsApp
+    </a>
+
+  </div>
+
+</section>
+
+</div>
+</div>
+
+<script>
+feather.replace();
+
+
+
+const reveal = document.querySelectorAll('.reveal');
+window.addEventListener('scroll',()=>{
+  reveal.forEach(el=>{
+    let top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight-100){
+      el.classList.add('active');
+    }
+  })
+})
+</script>
+
+</body>
+</html>
